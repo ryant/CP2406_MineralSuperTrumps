@@ -40,7 +40,6 @@ public class MSTCommandLine {
         game.setUser();
         MSTPlayer user = game.getUser();
         showPlayer(user);
-//        game.playTheGame();
         return game;
     }
 

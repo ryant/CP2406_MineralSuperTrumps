@@ -20,7 +20,7 @@ public class MSTGame {
 
     public int selectDealer() {
         Random random = new Random();
-        dealerId = random.nextInt(numPlayers);
+        dealerId = random.nextInt((numPlayers - 1) + 1);
         System.out.println("dealer id = " + dealerId);
         return dealerId;
     }
@@ -48,8 +48,11 @@ public class MSTGame {
     public void playTheGame() {
         boolean gameIsOn = true;
         while (gameIsOn) {
+            if (dealerId == (players.length-1)){
+                System.out.println(new MSTPlayer(getUser().toString()));
+            }
             int idxPlayer = dealerId + 1;
-            for (int i = idxPlayer; i < players.length; i++) {
+            for (int i = 0; i < players.length; i++) {
                 if(i == 0){
                     players[i] = new MSTPlayer("Player Id =" + i);
                 }

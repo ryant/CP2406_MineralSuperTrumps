@@ -28,7 +28,7 @@ public class MSTDeck {
             int idx = new Random().nextInt(cards.size());
             MSTCard card = cards.remove(idx);
             res.add(card);
-            System.out.println("\n card=" + card);
+            System.out.println("\n card = " + card);
         }
         return res;
     }
