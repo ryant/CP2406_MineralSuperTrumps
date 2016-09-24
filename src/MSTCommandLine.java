@@ -4,18 +4,21 @@ import java.util.Scanner;
  * Created by Ryan Thorp on 02-Sep-16.
  */
 public class MSTCommandLine {
-    private static final Object NEW_GAME = 1;
+    private static final int NEW_GAME = 1;
+    private static final int INSTRUCTIONS = 2;
+
 
     public static void main(String[] args) {
         showWelcome();
         showMenu();
+        MSTGame game;
         int opt = getUserMenuChoice();
-
         switch (opt) {
-            case 1:
-                startNewGame();
+            case NEW_GAME:
+                game = startNewGame();
+                game.playTheGame();
                 break;
-            case 2:
+            case INSTRUCTIONS:
                 showInstructions();
                 getUserMenuChoice();
 
@@ -29,7 +32,7 @@ public class MSTCommandLine {
 
     }
 
-    private static void startNewGame() {
+    private static MSTGame startNewGame() {
         int numPlayers = getNumPlayers();
         MSTGame game = new MSTGame(numPlayers);
         game.selectDealer();
@@ -37,6 +40,8 @@ public class MSTCommandLine {
         game.setUser();
         MSTPlayer user = game.getUser();
         showPlayer(user);
+//        game.playTheGame();
+        return game;
     }
 
     private static void showPlayer(MSTPlayer humanPlayer) {
