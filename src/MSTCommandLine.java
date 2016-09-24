@@ -30,28 +30,27 @@ public class MSTCommandLine {
     }
 
     private static void startNewGame() {
-        int numOpponents = getNumPlayers();
-        MSTGame game = new MSTGame(numOpponents);
+        int numPlayers = getNumPlayers();
+        MSTGame game = new MSTGame(numPlayers);
         game.selectDealer();
         game.dealRandomCards();
-        game.selectUser();
-
-        MSTPlayer humanPlayer = game.getHumanPlayer();
-        showPlayer(humanPlayer);
+        game.setUser();
+        MSTPlayer user = game.getUser();
+        showPlayer(user);
     }
 
     private static void showPlayer(MSTPlayer humanPlayer) {
-        System.out.println("Human Player=" + humanPlayer);
+        System.out.println("Human Player = " + humanPlayer);
     }
 
     public static int getNumPlayers() {
         int maxPlayers = 4;
         int minPlayers = 2;
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter number of opponents between " + minPlayers + " and " + maxPlayers + " inclusive");
+        System.out.println("Enter number of players between " + minPlayers + " and " + maxPlayers + " inclusive");
         int choice = input.nextInt();
         while (choice > maxPlayers || choice < minPlayers){
-            System.out.println("Please input number of Opponents between " + minPlayers + " and " + maxPlayers + " inclusive");
+            System.out.println("Please input number of players between " + minPlayers + " and " + maxPlayers + " inclusive");
             choice = input.nextInt();
         }
         return choice;

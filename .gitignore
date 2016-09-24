@@ -51,3 +51,5 @@ Temporary Items
 .idea
 out
 
+.idea/workspace.xml
+out/production/CP2406_MineralSuperTrumps/MSTCard.class

@@ -6,7 +6,7 @@ import java.util.Random;
  */
 public class MSTDeck {
 
-    private static final int NUM_CARDS_INIT = 10;
+    private static final int NUM_CARDS_INIT = 60;
     private ArrayList<MSTCard> cards;
 
     // List of all cards read from file or hard coded

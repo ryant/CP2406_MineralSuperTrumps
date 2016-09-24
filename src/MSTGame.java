@@ -11,7 +11,7 @@ public class MSTGame {
     public int dealerId;
     private MSTPlayer [] players;
     private MSTDeck deck;
-    int userId;
+    private int userId;
 
     public MSTGame (int numPlayers) {
         this.numPlayers = numPlayers;
@@ -19,7 +19,7 @@ public class MSTGame {
     }
     public int selectDealer() {
         Random random = new Random();
-        dealerId = random.nextInt(numPlayers);
+        dealerId = random.nextInt(numPlayers - 1) + 1;
         System.out.println("dealer id = " + dealerId);
         return dealerId;
     }
@@ -36,11 +36,11 @@ public class MSTGame {
         }
     }
 
-    public void selectUser() {
+    public void setUser() {
         userId = 0;
     }
 
-    public MSTPlayer getHumanPlayer() {
+    public MSTPlayer getUser() {
         return players[userId];
     }
 }

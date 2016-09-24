@@ -18,6 +18,6 @@ public class MSTPlayer {
     }
     @Override
     public String toString(){
-        return  "Player Id=" + playerId + "/n cards =" + cards;
+        return  "Player Id= " + playerId + "\n cards = " + cards;
     }
 }
