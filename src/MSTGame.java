@@ -7,26 +7,26 @@ import java.util.Random;
 public class MSTGame {
 
     private static final int NUM_CARDS_TO_DEAL = 8 ;
-    private int numOpponents;
+    private int numPlayers;
     public int dealerId;
     private MSTPlayer [] players;
     private MSTDeck deck;
     int userId;
 
-    public MSTGame (int numOpponents) {
-        this.numOpponents = numOpponents;
+    public MSTGame (int numPlayers) {
+        this.numPlayers = numPlayers;
         deck = new MSTDeck();
     }
     public int selectDealer() {
         Random random = new Random();
-        dealerId = random.nextInt(numOpponents + 1);
+        dealerId = random.nextInt(numPlayers);
         System.out.println("dealer id = " + dealerId);
         return dealerId;
     }
 
     public void dealRandomCards() {
-        players = new MSTPlayer[numOpponents + 1];
-        for (int i = 0; i < numOpponents + 1; i++){
+        players = new MSTPlayer[numPlayers];
+        for (int i = 0; i < numPlayers; i++){
             players[i] =new MSTPlayer("Player Id =" + i);
         }
         for (MSTPlayer player : players) {

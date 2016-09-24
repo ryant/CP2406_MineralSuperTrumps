@@ -16,7 +16,8 @@ public class MSTPlayer {
     public void setCards(ArrayList<MSTCard> cards) {
         this.cards = cards;
     }
+    @Override
     public String toString(){
-        return  "Player Id=" + playerId;
+        return  "Player Id=" + playerId + "/n cards =" + cards;
     }
 }

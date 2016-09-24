@@ -30,7 +30,7 @@ public class MSTCommandLine {
     }
 
     private static void startNewGame() {
-        int numOpponents = getNumOpponents();
+        int numOpponents = getNumPlayers();
         MSTGame game = new MSTGame(numOpponents);
         game.selectDealer();
         game.dealRandomCards();
@@ -44,25 +44,26 @@ public class MSTCommandLine {
         System.out.println("Human Player=" + humanPlayer);
     }
 
-    public static int getNumOpponents() {
-        int maxOpponents = 3;
-        int minOpponents = 1;
+    public static int getNumPlayers() {
+        int maxPlayers = 4;
+        int minPlayers = 2;
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter number of opponents between " + minOpponents + " and " + maxOpponents + " inclusive");
+        System.out.println("Enter number of opponents between " + minPlayers + " and " + maxPlayers + " inclusive");
         int choice = input.nextInt();
-        while (choice > maxOpponents && choice < minOpponents){
-            System.out.println("Please input number of Opponents between " + minOpponents + " and " + maxOpponents + " inclusive");
+        while (choice > maxPlayers || choice < minPlayers){
+            System.out.println("Please input number of Opponents between " + minPlayers + " and " + maxPlayers + " inclusive");
             choice = input.nextInt();
         }
         return choice;
     }
 
     private static int getUserMenuChoice() {
+
         Scanner input = new Scanner(System.in);
         int choice = input.nextInt();
         while (choice != 1 && choice != 2) {
             System.out.println("Please input 1 or 2");
-            input.nextInt();
+            choice = input.nextInt();
         }
         return choice;
     }
