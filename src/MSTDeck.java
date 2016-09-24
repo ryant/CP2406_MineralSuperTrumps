@@ -6,7 +6,7 @@ import java.util.Random;
  */
 public class MSTDeck {
 
-    private static final int NUM_CARDS_INIT = 60;
+    private static final int NUM_CARDS_INIT = 10;
     private ArrayList<MSTCard> cards;
 
     // List of all cards read from file or hard coded
@@ -23,9 +23,13 @@ public class MSTDeck {
     }
 
     public ArrayList<MSTCard> dealCards(int numCardsToDeal) {
-        for (int i = 0; i < numCardsToDeal; i++)
+        ArrayList<MSTCard> res = new ArrayList<MSTCard>();
+        for (int i = 0; i < numCardsToDeal; i++) {
             int idx = new Random().nextInt(cards.size());
             MSTCard card = cards.remove(idx);
-        return null;
+            res.add(card);
+            System.out.println("\n card=" + card);
+        }
+        return res;
     }
 }

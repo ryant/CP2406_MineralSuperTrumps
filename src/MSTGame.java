@@ -7,26 +7,40 @@ import java.util.Random;
 public class MSTGame {
 
     private static final int NUM_CARDS_TO_DEAL = 8 ;
-    private int numOpponents = MST.getNumOpponents();
+    private int numOpponents;
     public int dealerId;
     private MSTPlayer [] players;
     private MSTDeck deck;
+    int userId;
 
     public MSTGame (int numOpponents) {
         this.numOpponents = numOpponents;
+        deck = new MSTDeck();
     }
     public int selectDealer() {
         Random random = new Random();
-        dealerId = random.nextInt(numOpponents - 1) + 1;
+        dealerId = random.nextInt(numOpponents + 1);
+        System.out.println("dealer id = " + dealerId);
         return dealerId;
     }
 
     public void dealRandomCards() {
-        players = new MSTPlayer[numOpponents];
+        players = new MSTPlayer[numOpponents + 1];
+        for (int i = 0; i < numOpponents + 1; i++){
+            players[i] =new MSTPlayer("Player Id =" + i);
+        }
         for (MSTPlayer player : players) {
-            ArrayList<MSTCard> card = deck.dealCards(NUM_CARDS_TO_DEAL);
+            ArrayList<MSTCard> cards = deck.dealCards(NUM_CARDS_TO_DEAL);
             player.setCards(cards);
 
         }
+    }
+
+    public void selectUser() {
+        userId = 0;
+    }
+
+    public MSTPlayer getHumanPlayer() {
+        return players[userId];
     }
 }

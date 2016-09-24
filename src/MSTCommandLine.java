@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * Created by Ryan Thorp on 02-Sep-16.
  */
-public class MST {
+public class MSTCommandLine {
     private static final Object NEW_GAME = 1;
 
     public static void main(String[] args) {
@@ -17,12 +17,15 @@ public class MST {
                 break;
             case 2:
                 showInstructions();
+                getUserMenuChoice();
+
 
         }
 
     }
 
     private static void showInstructions() {
+
 
     }
 
@@ -31,11 +34,19 @@ public class MST {
         MSTGame game = new MSTGame(numOpponents);
         game.selectDealer();
         game.dealRandomCards();
+        game.selectUser();
+
+        MSTPlayer humanPlayer = game.getHumanPlayer();
+        showPlayer(humanPlayer);
+    }
+
+    private static void showPlayer(MSTPlayer humanPlayer) {
+        System.out.println("Human Player=" + humanPlayer);
     }
 
     public static int getNumOpponents() {
-        int maxOpponents = 4;
-        int minOpponents = 2;
+        int maxOpponents = 3;
+        int minOpponents = 1;
         Scanner input = new Scanner(System.in);
         System.out.println("Enter number of opponents between " + minOpponents + " and " + maxOpponents + " inclusive");
         int choice = input.nextInt();

@@ -4,5 +4,11 @@
 public class MSTCard {
     private int id;
 
-    public MSTCard
+    public MSTCard( int id){
+        this.id = id;
+    }
+
+    public String toString(){
+        return  "id=" + id;
+    }
 }
