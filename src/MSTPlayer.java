@@ -5,7 +5,7 @@ import java.util.ArrayList;
  */
 public class MSTPlayer {
 
-    private ArrayList<MSTCard> cards;
+    public ArrayList<MSTCard> cards;
     private String playerId;
 
     public MSTPlayer(String playerId) {
@@ -18,6 +18,6 @@ public class MSTPlayer {
     }
     @Override
     public String toString(){
-        return  "Player Id= " + playerId + "\n cards = " + cards;
+        return playerId;
     }
 }

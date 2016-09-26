@@ -6,17 +6,17 @@ import java.util.Scanner;
 public class MSTCommandLine {
     private static final int NEW_GAME = 1;
     private static final int INSTRUCTIONS = 2;
+    private static MSTGame game = new MSTGame();
 
 
     public static void main(String[] args) {
         showWelcome();
         showMenu();
-        MSTGame game;
         int opt = getUserMenuChoice();
         switch (opt) {
             case NEW_GAME:
-                game = startNewGame();
-                game.playTheGame();
+                startNewGame();
+                playTheGame();
                 break;
             case INSTRUCTIONS:
                 showInstructions();
@@ -27,21 +27,43 @@ public class MSTCommandLine {
 
     }
 
+    private static void playTheGame() {
+        boolean gameIsOn = true;
+        while (gameIsOn) {
+
+//            if (game.dealerId == (game.players.length - 1)) {
+//                System.out.println(new MSTPlayer(game.getUser().toString()));
+//            }
+
+            for (int i = 0; i < game.players.length; i++) {
+                if (i == 0) {
+                    game.players[i] = new MSTPlayer("Player Id =" + i);
+                }
+
+
+            }
+
+
+            break;
+        }
+    }
+
     private static void showInstructions() {
 
 
     }
 
-    private static MSTGame startNewGame() {
+    private static  void startNewGame() {
         int numPlayers = getNumPlayers();
-        MSTGame game = new MSTGame(numPlayers);
+        game.setNumPlayers(numPlayers);
         game.selectDealer();
         game.dealRandomCards();
         game.setUser();
         MSTPlayer user = game.getUser();
         showPlayer(user);
-        return game;
     }
+
+
 
     private static void showPlayer(MSTPlayer humanPlayer) {
         System.out.println("Human Player = " + humanPlayer);

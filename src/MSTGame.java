@@ -9,13 +9,13 @@ public class MSTGame {
     private static final int NUM_CARDS_TO_DEAL = 8;
     private int numPlayers;
     public int dealerId;
-    private MSTPlayer[] players;
-    private MSTDeck deck;
+    public MSTPlayer[] players;
+    private MSTDeck deck = new MSTDeck();
     private int userId;
 
-    public MSTGame(int numPlayers) {
+
+    public void setNumPlayers(int numPlayers) {
         this.numPlayers = numPlayers;
-        deck = new MSTDeck();
     }
 
     public int selectDealer() {
@@ -45,26 +45,6 @@ public class MSTGame {
         return players[userId];
     }
 
-    public void playTheGame() {
-        boolean gameIsOn = true;
-        while (gameIsOn) {
-            if (dealerId == (players.length-1)){
-                System.out.println(new MSTPlayer(getUser().toString()));
-            }
-            int idxPlayer = dealerId + 1;
-            for (int i = 0; i < players.length; i++) {
-                if(i == 0){
-                    players[i] = new MSTPlayer("Player Id =" + i);
-                }
 
-            }
-
-            break;
-
-        }
-
-
-
-    }
 
 }
