@@ -11,11 +11,11 @@ public class MSTGame {
     public MSTCard currentCard;
     public int dealerId;
     public MSTPlayer[] players;
+    public String currentCategory;
+    public String selectedCategory;
     private int numPlayers;
     private MSTDeck deck = new MSTDeck();
     private int userId;
-    public String currentCategory;
-    public String selectedCategory;
 
     public void setNumPlayers(int numPlayers) {
         this.numPlayers = numPlayers;
@@ -53,6 +53,7 @@ public class MSTGame {
     public int userTakeTurn() {
         int choice = 0;
 
+
         if (currentCategory == null) {
             Scanner getCategory = new Scanner(System.in);
             System.out.println("Enter desired category");
@@ -71,15 +72,17 @@ public class MSTGame {
             currentCategory = selectedCategory;
         }
 
-
-
         Scanner input = new Scanner(System.in);
         System.out.println("Take your turn");
+
+        if (currentCard == null) {
+            System.out.println("Select a card number");
+            choice = input.nextInt() - 1;
+        }
         if (currentCard != null) {
             System.out.println(currentCard);
-            System.out.println("\nTake your turn");
-
             choice = input.nextInt() - 1;
+
             boolean isCardInvalid = true;
             while (isCardInvalid) {
                 isCardInvalid = checkIfCardIsValid(choice);
@@ -102,7 +105,7 @@ public class MSTGame {
 
     private boolean isSelectedCategoryValid(String selectedCategory) {
         if (selectedCategory.equals("Hardness") || (selectedCategory.equals("Specific Gravity") ||
-                (selectedCategory.equals("Cleavage") || (selectedCategory.equals("Crustal abundance") || (selectedCategory.equals("Economic value")))))) {
+                (selectedCategory.equals("Cleavage") || (selectedCategory.equals("Crustal Abundance") || (selectedCategory.equals("Economic Value")))))) {
             return false;
         }
         System.out.println("Please select a valid category");
@@ -111,31 +114,78 @@ public class MSTGame {
 
 
     private boolean checkIfCardIsValid(int choice) {
-
-        if (players[userId].cards.size() <= choice  || choice < 0) {
+        if (isItTrumpCard(choice)) {
+            return false;
+        }
+        if (players[userId].cards.size() <= choice || choice < 0) {
             return true;
         }
-        if (players[userId].cards.get(choice).getCardCategory(currentCategory) <= currentCard.getCardCategory(currentCategory)) {
+        if (players[userId].cards.get(choice).getCardCategory(currentCategory) < currentCard.getCardCategory(currentCategory)) {
+            System.out.println("Chosen card category value is to low");
             return true;
         }
         return false;
     }
 
-    public void aiTakeTurn() {
+    public void opponentTakeTurn() {
         int choice;
-        MSTPlayer opponent = players[MSTCommandLine.currentPlayer];
-        if (currentCard != null) {
-            System.out.println(currentCard);
-            System.out.println("Opponent is selecting a card");
-        }
+
         Random random = new Random();
-        if (opponent.cards.size() == 0) {
-            System.out.println("Opponent Wins.... You Loose");
+        MSTPlayer opponent = players[MSTCommandLine.currentPlayer];
+        int cardCount = opponent.cards.size();
+
+        if (currentCategory == null) {
+            currentCategory = opponentChooseCategory();
+        }
+        if (currentCard == null) {
+            System.out.println("Opponent is selecting a card");
+            choice = random.nextInt(opponent.cards.size());
+            currentCard = opponent.cards.remove(choice);
+            System.out.println("Opponents chooses " + currentCard);
         }
 
-        choice = random.nextInt(opponent.cards.size());
-        MSTCard cardSelected = opponent.cards.remove(choice);
-        System.out.println("Opponents chooses " + cardSelected);
+
+        if (opponent.cards.size() == 0) {
+            System.out.println("Opponent Wins.... You Loose");
+        } else {
+            for (int i = 0; i < opponent.cards.size(); i++) {
+                choice = i;
+                if (opponent.cards.get(choice).getCardCategory(currentCategory) < currentCard.getCardCategory(currentCategory)) {
+                    System.out.println("Opponent is checking for a valid card");
+                    cardCount--;
+                    if (cardCount == 0) {
+                        System.out.println("Opponent can't play any cards");
+                        skipTurn();
+                    }
+                } else {
+                    currentCard = opponent.cards.remove(choice);
+                    System.out.println("\nOpponent chose: " + currentCard);
+                    break;
+                }
+
+            }
+        }
+
+    }
+
+    private void skipTurn() {
+        MSTCommandLine.currentPlayer++;
+
+    }
+
+    public boolean isItTrumpCard(int choice) {
+        MSTCard card = players[MSTCommandLine.currentPlayer].cards.get(choice);
+        return card.getCardType().equals("trump");
+    }
+
+
+    private String opponentChooseCategory() {
+        String[] categories = {"Hardness", "Cleavage", "Specific Gravity", "Crustal Abundance", "Economic Value"};
+        String opponentCategoryChoice;
+        System.out.println("Opponent chooses the category: ");
+        opponentCategoryChoice = (categories[new Random().nextInt(categories.length)]);
+        System.out.println(opponentCategoryChoice);
+        return opponentCategoryChoice;
 
     }
 }

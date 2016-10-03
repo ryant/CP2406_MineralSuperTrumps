@@ -122,5 +122,9 @@ public class MSTCard {
         } else
             return "cardError-1";
     }
+
+    public String getCardType() {
+        return cardType;
+    }
 }
 

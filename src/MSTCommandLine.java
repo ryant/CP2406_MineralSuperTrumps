@@ -8,7 +8,8 @@ public class MSTCommandLine {
     private static final int INSTRUCTIONS = 2;
     private static MSTGame game = new MSTGame();
     public static int currentPlayer = game.dealerId + 1;
-    public static boolean gameIsOn = true;
+
+
 
 
 
@@ -39,9 +40,10 @@ public class MSTCommandLine {
 
     private static void playTheGame() {
         //game logic
-
+        int currentPlayer = game.dealerId + 1;
+        boolean gameIsOn = true;
         while (gameIsOn) {
-            if (currentPlayer >= game.players.length) {
+            if (currentPlayer > game.players.length - 1) {
                 currentPlayer = 0;
             }
 
@@ -51,7 +53,7 @@ public class MSTCommandLine {
                 game.userTakeTurn();
 
             } else {
-                game.aiTakeTurn();
+                game.opponentTakeTurn();
             }
             currentPlayer += 1;
 
@@ -99,7 +101,7 @@ public class MSTCommandLine {
         game.selectDealer();
         game.dealRandomCards();
         game.setUser();
-        showUserPlayer(game.getUser());
+
 
     }
 
