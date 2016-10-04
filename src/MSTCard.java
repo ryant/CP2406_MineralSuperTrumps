@@ -126,5 +126,13 @@ public class MSTCard {
     public String getCardType() {
         return cardType;
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getChemistry() {
+        return chemistry;
+    }
 }
 

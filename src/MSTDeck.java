@@ -286,13 +286,13 @@ public class MSTDeck {
         occurrence.clear();
 
         //Trump card creation
-        cards.add(new MSTCard("Slide55.jpg", "trump", "The Miner", "Economic value", "", "", occurrence, 0, 0, "", "", ""));
+        cards.add(new MSTCard("Slide55.jpg", "trump", "The Miner", "Economic Value", "", "", occurrence, 0, 0, "", "", ""));
 
-        cards.add(new MSTCard("Slide56.jpg", "trump", "The Petrologist", "Crustal abundance", "", "", occurrence, 0, 0, "", "", ""));
+        cards.add(new MSTCard("Slide56.jpg", "trump", "The Petrologist", "Crustal Abundance", "", "", occurrence, 0, 0, "", "", ""));
 
         cards.add(new MSTCard("Slide58.jpg", "trump", "The Mineralogist", "Cleavage", "", "", occurrence, 0, 0, "", "", ""));
 
-        cards.add(new MSTCard("Slide59.jpg", "trump", "The Geophysicist", "Specific gravity", "", "", occurrence, 0, 0, "", "", ""));
+        cards.add(new MSTCard("Slide59.jpg", "trump", "The Geophysicist", "Specific Gravity", "", "", occurrence, 0, 0, "", "", ""));
 
         cards.add(new MSTCard("Slide60.jpg", "trump", "The Geologist", "your choice", "", "", occurrence, 0, 0, "", "", ""));
     }

@@ -50,57 +50,91 @@ public class MSTGame {
     }
 
 
-    public int userTakeTurn() {
-        int choice = 0;
-
+    public void userTakeTurn() {
+        int choice;
 
         if (currentCategory == null) {
-            Scanner getCategory = new Scanner(System.in);
-            System.out.println("Enter desired category");
-
-            selectedCategory = getCategory.nextLine();
-            boolean isSelectionInvalid = true;
-            while (isSelectionInvalid) {
-
-                isSelectionInvalid = isSelectedCategoryValid(selectedCategory);
-                if (isSelectionInvalid) {
-                    System.out.println("Enter card category");
-                    selectedCategory = getCategory.nextLine();
-                }
-
-            }
-            currentCategory = selectedCategory;
+            currentCategory = selectCategory();
         }
 
         Scanner input = new Scanner(System.in);
-        System.out.println("Take your turn");
-
-        if (currentCard == null) {
-            System.out.println("Select a card number");
-            choice = input.nextInt() - 1;
+        System.out.println("The Current Category is: " + currentCategory);
+        System.out.println("\nThe Current Card is: \n" + currentCard);
+        System.out.println("\nTake your turn");
+        choice = input.nextInt() - 1;
+        if (choice == 99) {
+            drawCard();
+            return;
         }
-        if (currentCard != null) {
-            System.out.println(currentCard);
-            choice = input.nextInt() - 1;
-
-            boolean isCardInvalid = true;
-            while (isCardInvalid) {
-                isCardInvalid = checkIfCardIsValid(choice);
-
-                if (isCardInvalid) {
-                    System.out.println("Invalid Choice");
-                    System.out.println("Please select a valid card this time.");
-                    choice = input.nextInt() - 1;
+        boolean isCardInvalid = true;
+        while (isCardInvalid) {
+            isCardInvalid = checkIfCardIsValid(choice);
+            if (isCardInvalid) {
+                System.out.println("Invalid Choice");
+                System.out.println("Please select a valid card this time.");
+                choice = input.nextInt() - 1;
+                if (choice == 99) {
+                    drawCard();
+                    return;
                 }
             }
         }
-
         currentCard = players[userId].cards.remove(choice);
-        if (players[userId].cards.size() == 0) {
-            System.out.println("You Win!");
-        }
-        return choice;
+        System.out.println(currentCard);
 
+
+        if (currentCard == null) {
+            System.out.println("Select a card number");
+//            choice = input.nextInt() - 1;
+        }
+        if (currentCard != null) {
+            if (isItTrumpCard(choice)) {
+                System.out.println("is a trump!!!!!!!!!!!!!!!!!!!!!!!!!");
+                if (currentCard.getTitle().equals("The Miner")) {
+                    currentCategory = "Economic Value";
+                    System.out.println(currentCategory);
+                }
+                if (currentCard.getTitle().equals("The Petrologist")) {
+                    currentCategory = "Crustal Abundance";
+                    System.out.println(currentCategory);
+                }
+                if (currentCard.getTitle().equals("The Mineralogist")) {
+                    currentCategory = "Cleavage";
+                    System.out.println(currentCategory);
+                }
+                if (currentCard.getTitle().equals("The Geophysicist")) {
+                    currentCategory = "Specific Gravity";
+                    System.out.println(currentCategory);
+                }
+                if (currentCard.getTitle().equals("The Geologist")) {
+                    currentCategory = selectCategory();
+                    System.out.println(currentCategory);
+                }
+                System.out.println("The Current Category is: " + currentCategory);
+            }
+        }
+        if (players[userId].cards.size() == 0) {
+            endGame();
+        }
+
+    }
+
+    private String selectCategory() {
+        Scanner getCategory = new Scanner(System.in);
+        System.out.println("Enter desired category");
+
+        selectedCategory = getCategory.nextLine();
+        boolean isSelectionInvalid = true;
+        while (isSelectionInvalid) {
+
+            isSelectionInvalid = isSelectedCategoryValid(selectedCategory);
+            if (isSelectionInvalid) {
+                System.out.println("Enter card category");
+                selectedCategory = getCategory.nextLine();
+            }
+
+        }
+        return selectedCategory;
     }
 
     private boolean isSelectedCategoryValid(String selectedCategory) {
@@ -114,15 +148,18 @@ public class MSTGame {
 
 
     private boolean checkIfCardIsValid(int choice) {
-        if (isItTrumpCard(choice)) {
+        if (choice == 99) {
+            skipTurn();
+        } else if (players[userId].cards.size() <= choice || choice < 0) {
+            return true;
+        } else if (players[userId].cards.get(choice).getCardType().equals("trump")) {
             return false;
         }
-        if (players[userId].cards.size() <= choice || choice < 0) {
-            return true;
-        }
-        if (players[userId].cards.get(choice).getCardCategory(currentCategory) < currentCard.getCardCategory(currentCategory)) {
+        if (currentCard != null){
+         if (players[userId].cards.get(choice).getCardCategory(currentCategory) < currentCard.getCardCategory(currentCategory)) {
             System.out.println("Chosen card category value is to low");
             return true;
+         }
         }
         return false;
     }
@@ -138,15 +175,17 @@ public class MSTGame {
             currentCategory = opponentChooseCategory();
         }
         if (currentCard == null) {
-            System.out.println("Opponent is selecting a card");
+            System.out.println("Opponent is selecting a card\n");
             choice = random.nextInt(opponent.cards.size());
             currentCard = opponent.cards.remove(choice);
-            System.out.println("Opponents chooses " + currentCard);
+            System.out.println("\nOpponent chose: \n" + currentCard + "\n");
+
         }
 
 
         if (opponent.cards.size() == 0) {
             System.out.println("Opponent Wins.... You Loose");
+            endGame();
         } else {
             for (int i = 0; i < opponent.cards.size(); i++) {
                 choice = i;
@@ -155,11 +194,14 @@ public class MSTGame {
                     cardCount--;
                     if (cardCount == 0) {
                         System.out.println("Opponent can't play any cards");
-                        skipTurn();
+                        MSTCard drawnCard = deck.dealCards(1).remove(0);
+                        System.out.println("Opponent draws a card\n");
+                        opponent.cards.add(drawnCard);
+                        break;
                     }
                 } else {
                     currentCard = opponent.cards.remove(choice);
-                    System.out.println("\nOpponent chose: " + currentCard);
+                    System.out.println("\nOpponent chose: \n" + currentCard + "\n");
                     break;
                 }
 
@@ -168,16 +210,32 @@ public class MSTGame {
 
     }
 
-    private void skipTurn() {
-        MSTCommandLine.currentPlayer++;
+    private void endGame() {
+        if (players[userId].cards.size() == 0){
+            System.out.println("Congrats!!! You are the Winner");
+        }
+        else {
+            System.out.println("Sorry you lost!");
+        }
+        MSTCommandLine.gameIsOn = false;
+    }
 
+    private void skipTurn() {
+        System.out.println("Skip turn!");
+        drawCard();
+//        MSTCommandLine.playTheGame();
+
+
+    }
+
+    public void drawCard() {
+        MSTCard drawnCard = deck.dealCards(1).remove(0);
+        players[0].cards.add(drawnCard);
     }
 
     public boolean isItTrumpCard(int choice) {
-        MSTCard card = players[MSTCommandLine.currentPlayer].cards.get(choice);
-        return card.getCardType().equals("trump");
+        return currentCard.getCardType().equals("trump");
     }
-
 
     private String opponentChooseCategory() {
         String[] categories = {"Hardness", "Cleavage", "Specific Gravity", "Crustal Abundance", "Economic Value"};
@@ -186,6 +244,5 @@ public class MSTGame {
         opponentCategoryChoice = (categories[new Random().nextInt(categories.length)]);
         System.out.println(opponentCategoryChoice);
         return opponentCategoryChoice;
-
     }
 }

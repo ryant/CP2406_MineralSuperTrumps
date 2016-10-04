@@ -8,6 +8,7 @@ public class MSTCommandLine {
     private static final int INSTRUCTIONS = 2;
     private static MSTGame game = new MSTGame();
     public static int currentPlayer = game.dealerId + 1;
+    public static boolean gameIsOn = true;
 
 
 
@@ -38,10 +39,10 @@ public class MSTCommandLine {
 
     }
 
-    private static void playTheGame() {
+    public static void playTheGame() {
         //game logic
         int currentPlayer = game.dealerId + 1;
-        boolean gameIsOn = true;
+        gameIsOn = true;
         while (gameIsOn) {
             if (currentPlayer > game.players.length - 1) {
                 currentPlayer = 0;
@@ -117,8 +118,8 @@ public class MSTCommandLine {
 
 
     public static int getNumPlayers() {
-        int maxPlayers = 4;
-        int minPlayers = 2;
+        int maxPlayers = 5;
+        int minPlayers = 3;
         Scanner input = new Scanner(System.in);
         System.out.println("Enter number of players between " + minPlayers + " and " + maxPlayers + " inclusive");
         int choice = input.nextInt();
