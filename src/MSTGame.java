@@ -60,7 +60,7 @@ public class MSTGame {
         Scanner input = new Scanner(System.in);
         System.out.println("The Current Category is: " + currentCategory);
         System.out.println("\nThe Current Card is: \n" + currentCard);
-        System.out.println("\nTake your turn");
+        System.out.println("\nSelect a card number or enter 100 to skip turn and draw a card");
         choice = input.nextInt() - 1;
         if (choice == 99) {
             drawCard();
@@ -89,31 +89,30 @@ public class MSTGame {
         }
         if (currentCard != null) {
             if (isItTrumpCard(choice)) {
-                System.out.println("is a trump!!!!!!!!!!!!!!!!!!!!!!!!!");
                 if (currentCard.getTitle().equals("The Miner")) {
                     currentCategory = "Economic Value";
-                    System.out.println(currentCategory);
+
                 }
                 if (currentCard.getTitle().equals("The Petrologist")) {
                     currentCategory = "Crustal Abundance";
-                    System.out.println(currentCategory);
+
                 }
                 if (currentCard.getTitle().equals("The Mineralogist")) {
                     currentCategory = "Cleavage";
-                    System.out.println(currentCategory);
+
                 }
                 if (currentCard.getTitle().equals("The Geophysicist")) {
                     currentCategory = "Specific Gravity";
-                    System.out.println(currentCategory);
+
                 }
                 if (currentCard.getTitle().equals("The Geologist")) {
                     currentCategory = selectCategory();
-                    System.out.println(currentCategory);
+
                 }
                 System.out.println("The Current Category is: " + currentCategory);
             }
         }
-        if (players[userId].cards.size() == 0) {
+        if (players[userId].cards.size() == 7) {
             endGame();
         }
 
@@ -155,11 +154,11 @@ public class MSTGame {
         } else if (players[userId].cards.get(choice).getCardType().equals("trump")) {
             return false;
         }
-        if (currentCard != null){
-         if (players[userId].cards.get(choice).getCardCategory(currentCategory) < currentCard.getCardCategory(currentCategory)) {
-            System.out.println("Chosen card category value is to low");
-            return true;
-         }
+        if (currentCard != null) {
+            if (players[userId].cards.get(choice).getCardCategory(currentCategory) < currentCard.getCardCategory(currentCategory)) {
+                System.out.println("Chosen card category value is to low");
+                return true;
+            }
         }
         return false;
     }
@@ -211,10 +210,10 @@ public class MSTGame {
     }
 
     private void endGame() {
-        if (players[userId].cards.size() == 0){
+        if (players[userId].cards.size() == 0) {
+            System.out.println("\nYou have zero cards in your hand");
             System.out.println("Congrats!!! You are the Winner");
-        }
-        else {
+        } else {
             System.out.println("Sorry you lost!");
         }
         MSTCommandLine.gameIsOn = false;
@@ -229,6 +228,7 @@ public class MSTGame {
     }
 
     public void drawCard() {
+        System.out.println("Skipping turn and drawing a card");
         MSTCard drawnCard = deck.dealCards(1).remove(0);
         players[0].cards.add(drawnCard);
     }

@@ -6,13 +6,9 @@ import java.util.Scanner;
 public class MSTCommandLine {
     private static final int NEW_GAME = 1;
     private static final int INSTRUCTIONS = 2;
+    public static boolean gameIsOn = true;
     private static MSTGame game = new MSTGame();
     public static int currentPlayer = game.dealerId + 1;
-    public static boolean gameIsOn = true;
-
-
-
-
 
     public static void main(String[] args) {
         showWelcome();
@@ -32,7 +28,8 @@ public class MSTCommandLine {
             }
         }
 
-        while (opt != NEW_GAME); {
+        while (opt != NEW_GAME);
+        {
 
 
         }

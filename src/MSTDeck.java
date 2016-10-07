@@ -10,7 +10,7 @@ public class MSTDeck {
 
     // List of all cards read from file or hard coded
 
-    public MSTDeck(){
+    public MSTDeck() {
         cards = new ArrayList<MSTCard>();
         ArrayList<String> occurrence = new ArrayList<String>();
 
@@ -296,8 +296,6 @@ public class MSTDeck {
 
         cards.add(new MSTCard("Slide60.jpg", "trump", "The Geologist", "your choice", "", "", occurrence, 0, 0, "", "", ""));
     }
-
-
 
 
     public ArrayList<MSTCard> dealCards(int numCardsToDeal) {
