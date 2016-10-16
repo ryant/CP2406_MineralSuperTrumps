@@ -47,9 +47,11 @@ Temporary Items
 .apdisk
 
 #IDE
-.idea\
+.idea/
 .idea
-out
-
+out/
+res/
 .idea/workspace.xml
 out/production/CP2406_MineralSuperTrumps/MSTCard.class
+.idea/workspace.xml
+.idea/workspace.xml
