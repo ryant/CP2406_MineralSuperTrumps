@@ -13,12 +13,12 @@ public class MSTGame {
     public MSTPlayer[] players;
     public String currentCategory;
     public String selectedCategory;
-    private int numPlayers;
+    public static int numPlayers;
     private MSTDeck deck = new MSTDeck();
-    private int userId;
+    public int userId;
 
-    public void setNumPlayers(int numPlayers) {
-        this.numPlayers = numPlayers;
+    public static void setNumPlayers(int numberPlayers) {
+        numPlayers = numberPlayers;
     }
 
     public int selectDealer() {
@@ -112,7 +112,7 @@ public class MSTGame {
                 System.out.println("The Current Category is: " + currentCategory);
             }
         }
-        if (players[userId].cards.size() == 7) {
+        if (players[userId].cards.size() == 0) {
             endGame();
         }
 
@@ -167,7 +167,7 @@ public class MSTGame {
         int choice;
 
         Random random = new Random();
-        MSTPlayer opponent = players[MSTCommandLine.currentPlayer];
+        MSTPlayer opponent = players[MSTMain.currentPlayer];
         int cardCount = opponent.cards.size();
 
         if (currentCategory == null) {
@@ -216,13 +216,13 @@ public class MSTGame {
         } else {
             System.out.println("Sorry you lost!");
         }
-        MSTCommandLine.gameIsOn = false;
+        MSTMain.gameIsOn = false;
     }
 
     private void skipTurn() {
         System.out.println("Skip turn!");
         drawCard();
-//        MSTCommandLine.playTheGame();
+//        MSTMain.playTheGame();
 
 
     }

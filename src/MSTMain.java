@@ -3,12 +3,13 @@ import java.util.Scanner;
 /**
  * Created by Ryan Thorp on 02-Sep-16.
  */
-public class MSTCommandLine {
+public class MSTMain {
     private static final int NEW_GAME = 1;
     private static final int INSTRUCTIONS = 2;
     public static boolean gameIsOn = true;
     private static MSTGame game = new MSTGame();
     public static int currentPlayer = game.dealerId + 1;
+
 
     public static void main(String[] args) {
         showWelcome();
@@ -59,8 +60,8 @@ public class MSTCommandLine {
     }
     //todo: setup players in correct order
 
-    private static void showInstructions() {
-        System.out.println("How to play:" + '\n' + '\n' +
+    public static String showInstructions() {
+        return ("How to play:" + '\n' + '\n' +
                 "1. A dealer (randomly chosen) shuffles the cards and deals each player 8 cards." + '\n' +
                 "Each player can look at their cards, but should not show them to other players." + '\n' +
                 "The remaining card pack is placed face down on the table." + '\n' + '\n' +
@@ -85,7 +86,8 @@ public class MSTCommandLine {
                 "instructions on the supertrump card. At this stage, any player who had passed on the previous round" + '\n' +
                 "is now able to play again. If a player throws The Geophysicist card together with the Magnetite card," + '\n' +
                 "then that player wins the hand." + '\n' + '\n' +
-                "6. The game continues with players taking turns to play cards until all but one player has passed." + '\n' +
+                "6. The game continues with players taking turns to play c" +
+                "ards until all but one player has passed." + '\n' +
                 "The last player then gets to lead out the next round and chooses the trump category to be played." + '\n' + '\n' +
                 "7. The winner of the game is the first player to lose all of their cards. The game continues until" + '\n' +
                 "all but one player (i.e., the loser) has lost their cards.\n");
