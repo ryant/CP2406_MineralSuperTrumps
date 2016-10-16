@@ -13,6 +13,7 @@ public class MSTMenuView {
     private JButton startGameBtn;
     private JComboBox<Integer> selectNumPlayers;
     private JLabel labelNumPlayers;
+    MSTGame game;
 
     public MSTMenuView() {
         mainFrame = new JFrame("Mineral Super Trumps");
@@ -31,6 +32,9 @@ public class MSTMenuView {
         startGameBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+//                game.selectDealer();
+//                game.dealRandomCards();
+//                game.setUser();
                 new GameFrame();
 
 

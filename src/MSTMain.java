@@ -96,8 +96,7 @@ public class MSTMain {
 
 
     private static void startNewGame() {
-        int numPlayers = getNumPlayers();
-        game.setNumPlayers(numPlayers);
+//        game.setNumPlayers(numPlayers);
         game.selectDealer();
         game.dealRandomCards();
         game.setUser();

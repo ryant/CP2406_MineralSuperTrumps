@@ -6,15 +6,17 @@ import java.awt.*;
  */
 public class GameFrame extends JFrame {
     private PlayerPanel playerPanel = new PlayerPanel();
-
+    private CardTablePanel cardTablePanel = new CardTablePanel();
     public GameFrame(){
         super("Mineral Super Trumps Game");
         setLayout(new BorderLayout());
         setSize(1152, 648);
         setLocationRelativeTo(null);
         setVisible(true);
+        setResizable(false);
 
         add(playerPanel, BorderLayout.SOUTH);
+        add(cardTablePanel, BorderLayout.CENTER);
 
     }
 
