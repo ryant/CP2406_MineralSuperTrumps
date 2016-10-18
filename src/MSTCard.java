@@ -5,7 +5,16 @@ import java.util.ArrayList;
  */
 public class MSTCard {
 
-    private String fileName, cardType, title, chemistry, classification, crystalSystem, cleavage, crustalAbundance, economicValue, occurString;
+    public String fileName;
+    private String cardType;
+    private String title;
+    private String chemistry;
+    private String classification;
+    private String crystalSystem;
+    private String cleavage;
+    private String crustalAbundance;
+    private String economicValue;
+    private String occurString;
     private ArrayList<String> occurrence = new ArrayList<>();
     private double hardness, specificGravity;
 

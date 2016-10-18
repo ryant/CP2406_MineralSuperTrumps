@@ -6,15 +6,15 @@ import java.awt.*;
  */
 public class CardTablePanel extends JPanel {
 
-
+    static JLabel currentCardLabel;
     public CardTablePanel(){
         super();
-        setLayout(new FlowLayout(FlowLayout.CENTER, 200, 250));
+        setLayout(new FlowLayout(FlowLayout.CENTER, 300, 150));
         setVisible(true);
 
-        JLabel currentCardLabel = new JLabel("Current Card");
+        currentCardLabel = new JLabel("Current Card");
         JLabel currentCatLabel = new JLabel("Current Category");
-        JButton deckBtn = new JButton("Da Button");
+        JButton deckBtn = new JButton("Pick Up Card");
 
         add(currentCardLabel);
         add(currentCatLabel);

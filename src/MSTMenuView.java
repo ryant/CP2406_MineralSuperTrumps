@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 /**
  * Created by Ryan Thorp on 15-Oct-16.
@@ -32,10 +33,15 @@ public class MSTMenuView {
         startGameBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-//                game.selectDealer();
-//                game.dealRandomCards();
-//                game.setUser();
-                new GameFrame();
+                game = new MSTGame();
+                game.selectDealer();
+                game.dealRandomCards();
+                game.setUser();
+                try {
+                    new GameFrame(game.players);
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
 
 
             }

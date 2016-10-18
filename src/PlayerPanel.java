@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 /**
  * Created by Ryan Thorp on 16-Oct-16.
@@ -7,17 +8,15 @@ import java.awt.*;
 public class PlayerPanel extends JPanel {
     private MSTPlayer player;
     MSTCard card;
-    public PlayerPanel(){
+    public PlayerPanel(MSTPlayer player) throws IOException {
         super();
+        this.player = player;
         setLayout(new FlowLayout());
         setVisible(true);
-//        for (int i = 0 ; i < (player.cards.size()); i++){
-//            JButton card = new JButton();
-//            add(card);
-//        }
-        for (int i = 0 ; i < 8; i++){
-            JButton card = new JButton();
-            add(card);
+
+        for (MSTCard card: player.cards) {
+            CardImage  cards = new CardImage(card);
+            add(cards);
         }
     }
 }
