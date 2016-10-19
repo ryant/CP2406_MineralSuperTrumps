@@ -9,12 +9,12 @@ import java.io.IOException;
  */
 public class MSTMenuView {
     public JFrame mainFrame;
+    MSTGame game;
     private JPanel menuPanel;
     private JButton intructionsBtn;
     private JButton startGameBtn;
     private JComboBox<Integer> selectNumPlayers;
     private JLabel labelNumPlayers;
-    MSTGame game;
 
     public MSTMenuView() {
         mainFrame = new JFrame("Mineral Super Trumps");

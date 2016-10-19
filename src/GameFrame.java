@@ -9,6 +9,7 @@ public class GameFrame extends JFrame {
 
     private PlayerPanel playerPanel;
     private CardTablePanel cardTablePanel = new CardTablePanel();
+
     public GameFrame(MSTPlayer[] players) throws IOException {
         super("Mineral Super Trumps Game");
         setLayout(new BorderLayout());

@@ -8,14 +8,14 @@ import java.util.Scanner;
 public class MSTGame {
 
     private static final int NUM_CARDS_TO_DEAL = 8;
+    public static int numPlayers;
     public MSTCard currentCard;
     public int dealerId;
     public MSTPlayer[] players;
     public String currentCategory;
     public String selectedCategory;
-    public static int numPlayers;
-    private MSTDeck deck = new MSTDeck();
     public int userId;
+    private MSTDeck deck = new MSTDeck();
 
     public static void setNumPlayers(int numberPlayers) {
         numPlayers = numberPlayers;
