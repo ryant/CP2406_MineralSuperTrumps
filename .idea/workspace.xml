@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ecd3011-6398-47ee-8e68-38bba08afecf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CardImage.java" afterPath="$PROJECT_DIR$/src/CardImage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/CardTablePanel.java" afterPath="$PROJECT_DIR$/src/CardTablePanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GameFrame.java" afterPath="$PROJECT_DIR$/src/GameFrame.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MSTMenuView.java" afterPath="$PROJECT_DIR$/src/MSTMenuView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/PlayerPanel.java" afterPath="$PROJECT_DIR$/src/PlayerPanel.java" />
     </list>
     <ignored path="CP2406_MineralSuperTrumps.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,8 +61,8 @@
       <file leaf-file-name="MSTMenuView.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MSTMenuView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="99" column="45" selection-start-line="99" selection-start-column="45" selection-end-line="99" selection-end-column="45" />
+            <state relative-caret-position="593">
+              <caret line="109" column="27" selection-start-line="109" selection-start-column="27" selection-end-line="109" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -75,8 +73,8 @@
       <file leaf-file-name="CardTablePanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CardTablePanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
+            <state relative-caret-position="89">
+              <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,11 +82,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameFrame.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameFrame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GameFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
+            <state relative-caret-position="341">
+              <caret line="21" column="70" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -96,11 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PlayerPanel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PlayerPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PlayerPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="509">
-              <caret line="34" column="42" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
+            <state relative-caret-position="551">
+              <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,8 +121,8 @@
       <file leaf-file-name="CardImage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CardImage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="173">
+              <caret line="28" column="60" selection-start-line="28" selection-start-column="60" selection-end-line="28" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -166,12 +164,12 @@
         <option value="$PROJECT_DIR$/src/MSTRunGui.java" />
         <option value="$PROJECT_DIR$/src/MSTMain.java" />
         <option value="$PROJECT_DIR$/src/MSTGame.java" />
-        <option value="$PROJECT_DIR$/src/GameFrame.java" />
         <option value="$PROJECT_DIR$/src/SelectCategoryGui.java" />
         <option value="$PROJECT_DIR$/src/CardTablePanel.java" />
+        <option value="$PROJECT_DIR$/src/PlayerPanel.java" />
         <option value="$PROJECT_DIR$/src/CardImage.java" />
         <option value="$PROJECT_DIR$/src/MSTMenuView.java" />
-        <option value="$PROJECT_DIR$/src/PlayerPanel.java" />
+        <option value="$PROJECT_DIR$/src/GameFrame.java" />
       </list>
     </option>
   </component>
@@ -228,7 +226,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CP2406_Pracs/cp2406_farrell8_ch12" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CP2406_Pracs/cp2406_farrell8_ch01" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
     <property name="SearchEverywhereHistoryKey" value="Dealer&#9;PSI&#9;JAVA://MSTGame#selectDealer&#10;play&#9;PSI&#9;JAVA://MSTCommandLine#playTheGame" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="604" />
@@ -722,7 +720,7 @@
       <workItem from="1476788077814" duration="6772000" />
       <workItem from="1476869304004" duration="15876000" />
       <workItem from="1476912596158" duration="120000" />
-      <workItem from="1476952970291" duration="8294000" />
+      <workItem from="1476952970291" duration="13954000" />
     </task>
     <task id="LOCAL-00001" summary="gitirgnore change">
       <created>1474675155075</created>
@@ -749,7 +747,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="239674000" />
+    <option name="totallyTimeSpent" value="245334000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-14" y="-14" width="3228" height="1738" extended-state="6" />
@@ -1220,10 +1218,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GameFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/CardTablePanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
+        <state relative-caret-position="89">
+          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1238,20 +1236,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/CardTablePanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="15" column="48" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/CardImage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state relative-caret-position="173">
+          <caret line="28" column="60" selection-start-line="28" selection-start-column="60" selection-end-line="28" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1260,8 +1248,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MSTMenuView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="99" column="45" selection-start-line="99" selection-start-column="45" selection-end-line="99" selection-end-column="45" />
+        <state relative-caret-position="593">
+          <caret line="109" column="27" selection-start-line="109" selection-start-column="27" selection-end-line="109" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1270,8 +1258,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PlayerPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="509">
-          <caret line="34" column="42" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
+        <state relative-caret-position="551">
+          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GameFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="21" column="70" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

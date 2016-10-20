@@ -25,15 +25,21 @@ public class CardImage extends JPanel {
         cardView = new JButton(new ImageIcon(cardImage));
         add(cardView);
         cardView.addActionListener(e -> {
+
+            if(MSTMenuView.game.players[0].cards.size() == 1){
+                JOptionPane.showMessageDialog(null,"CONGRATULATIONS YOU WON!" );
+                System.exit(1);
+            }
             currentCardLabel.setIcon(new ImageIcon(cardImage));
+
             remove(cardView);
+            MSTMenuView.game.players[0].cards.remove(card);
             revalidate();
             try {
                 MSTMenuView.opponentTakeTurn();
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
-
         });
     }
 

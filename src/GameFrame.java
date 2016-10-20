@@ -19,6 +19,7 @@ public class GameFrame extends JFrame {
         setResizable(false);
         playerPanel = new PlayerPanel(players[0]);
         JScrollPane playerPanelScroll = new JScrollPane(playerPanel, ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        playerPanelScroll.getHorizontalScrollBar().setUnitIncrement(40);
         add(playerPanelScroll, BorderLayout.SOUTH);
         add(playerPanelScroll, BorderLayout.CENTER);
         add(cardTablePanel, BorderLayout.NORTH);

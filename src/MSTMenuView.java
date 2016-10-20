@@ -105,6 +105,10 @@ public class MSTMenuView {
         CardImage aiCardImage = new CardImage(opponentCard);
         CardTablePanel.currentCardLabel.setIcon(new ImageIcon(aiCardImage.cardImage));
 
+        if(MSTMenuView.game.players[1].cards.size()== 0) {
+            JOptionPane.showMessageDialog(null, "COMPUTER WINS!");
+            System.exit(1);
+        }
     }
 
 
