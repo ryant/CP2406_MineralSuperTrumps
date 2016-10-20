@@ -9,7 +9,7 @@ import java.io.IOException;
  * Created by Ryan Thorp on 18-Oct-16.
  */
 public class CardImage extends JPanel {
-    private BufferedImage cardImage;
+    public BufferedImage cardImage;
     private JButton cardView;
     private JLabel currentCardLabel = CardTablePanel.currentCardLabel;
 
@@ -28,6 +28,12 @@ public class CardImage extends JPanel {
             currentCardLabel.setIcon(new ImageIcon(cardImage));
             remove(cardView);
             revalidate();
+            try {
+                MSTMenuView.opponentTakeTurn();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+
         });
     }
 

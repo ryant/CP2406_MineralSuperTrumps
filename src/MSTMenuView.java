@@ -3,18 +3,23 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.Random;
 
 /**
  * Created by Ryan Thorp on 15-Oct-16.
  */
 public class MSTMenuView {
     public JFrame mainFrame;
-    MSTGame game;
+    public static MSTGame game = new MSTGame();
     private JPanel menuPanel;
     private JButton intructionsBtn;
     private JButton startGameBtn;
     private JComboBox<Integer> selectNumPlayers;
     private JLabel labelNumPlayers;
+    public static MSTPlayer[] players;
+
+
+
 
     public MSTMenuView() {
         mainFrame = new JFrame("Mineral Super Trumps");
@@ -33,7 +38,7 @@ public class MSTMenuView {
         startGameBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                game = new MSTGame();
+
                 game.selectDealer();
                 game.dealRandomCards();
                 game.setUser();
@@ -88,6 +93,17 @@ public class MSTMenuView {
         menuPanel.add(selectNumPlayers);
         mainFrame.revalidate();
 
+
+    }
+    public static void opponentTakeTurn() throws IOException {
+        Random random = new Random();
+        MSTPlayer opponent = game.players[1];
+        System.out.println("Opponent is selecting a card\n");
+        int choice = random.nextInt(opponent.cards.size());
+        MSTCard opponentCard = opponent.cards.remove(choice);
+        System.out.println("\nOpponent chose: \n" + opponentCard + "\n");
+        CardImage aiCardImage = new CardImage(opponentCard);
+        CardTablePanel.currentCardLabel.setIcon(new ImageIcon(aiCardImage.cardImage));
 
     }
 

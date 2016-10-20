@@ -18,18 +18,23 @@ public class PlayerPanel extends JPanel {
         player = player;
         setLayout(new FlowLayout());
         setVisible(true);
-        JButton deckBtn = new JButton("Pick Up Card");
-        add(deckBtn);
+        JButton addCardBtn = new JButton("Pick Up Card");
+        add(addCardBtn);
         for (MSTCard card : player.cards) {
             CardImage cards = new CardImage(card);
             add(cards);
         }
 
-        deckBtn.addActionListener(new ActionListener() {
+        addCardBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 addCard();
                 revalidate();
+                try {
+                    MSTMenuView.opponentTakeTurn();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
 
 
             }
