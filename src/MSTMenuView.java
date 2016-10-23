@@ -96,6 +96,21 @@ public class MSTMenuView {
 
     }
     public static void opponentTakeTurn() throws IOException {
+        JOptionPane pane = new JOptionPane("Opponent Taking Turn", JOptionPane.PLAIN_MESSAGE);
+        JDialog dialog = pane.createDialog("Opponent is selecting a card");
+
+        dialog.addWindowListener(null);
+        dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+
+        Timer timer = new Timer(1000, new ActionListener() { // 1 sec
+            public void actionPerformed(ActionEvent e) {
+                dialog.setVisible(false);
+                dialog.dispose();
+            }
+        });
+        timer.start();
+        dialog.setVisible(true);
+
         Random random = new Random();
         MSTPlayer opponent = game.players[1];
         System.out.println("Opponent is selecting a card\n");
